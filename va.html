@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ភូមិបៃតង - កសិកម្ម និងផលដំណាំធម្មជាតិ</title>
+    
+    <!-- Google Fonts (Kantumruy Pro) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #4caf50;
+            --primary-dark: #1b5e20;
+            --accent: #81c784;
+            --bg-light: #f4f8f5;
+            --text-main: #2c3e50;
+            --text-muted: #607d8b;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.25s ease-in-out;
+            --nav-height: 65px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kantumruy Pro', sans-serif;
+            letter-spacing: normal !important;
+            word-spacing: normal !important;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.8;
+        }
+
+        /* NAVBAR (ទម្រង់ដើម + បន្ថែមពន្លឺភ្លឺ) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(46, 125, 50, 0.12); /* Shadow ភ្លឺ */
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover, .nav-links a:active {
+            color: var(--primary);
+            background: #e8f5e9;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary-dark);
+            user-select: none;
+            padding: 5px;
+        }
+
+        /* OVERLAY BACKDROP (ទម្រង់ដើម) */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            margin-top: var(--nav-height);
+            padding: 90px 6% 70px 6%;
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.88), rgba(0, 0, 0, 0.65)), url('co.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            max-width: 750px;
+            margin: 0 auto 25px auto;
+            opacity: 0.95;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 32px;
+            background: var(--primary-light);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 30px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+
+        /* GENERAL SECTIONS */
+        .section {
+            padding: 70px 8%;
+            scroll-margin-top: calc(var(--nav-height) + 10px);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        /* CARDS GRID */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid #e0e0e0;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 18px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        .btn-learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        /* TRUST BANNER */
+        .trust-banner {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            padding: 45px 6%;
+            border-radius: 20px;
+            text-align: center;
+            margin: 30px 8%;
+            box-shadow: var(--shadow);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .trust-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .trust-item h4 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            color: var(--accent);
+        }
+
+        /* ABOUT SECTION GRID */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+        }
+
+        .about-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        /* ORDER FORM SECTION */
+        .order-section {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 35px 30px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .order-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 12px 14px;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 0.98rem;
+            outline: none;
+            transition: var(--transition);
+            background: #fafafa;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 50px 8% 20px 8%;
+            scroll-margin-top: var(--nav-height);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.15rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .footer-col p, .footer-col a {
+            color: #d1e7dd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #a3cfbb;
+            font-size: 0.85rem;
+        }
+
+        /* MOBILE MENU (រក្សាទម្រង់ដើម ១០០% ប៉ុន្តែបន្ថែម Bright Glow Effect) */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 75%;
+                max-width: 280px;
+                height: 100vh;
+                background: #ffffff;
+                flex-direction: column;
+                padding: 80px 20px 30px 20px;
+                gap: 8px;
+                /* កែប្រែ Box Shadow ឱ្យចេញពន្លឺភ្លឺ Glow សមស្រប */
+                box-shadow: -5px 0 25px rgba(76, 175, 80, 0.25);
+                transition: transform 0.3s ease-in-out;
+                z-index: 9999;
+                transform: translateX(100%);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                font-size: 1.05rem;
+                display: block;
+                padding: 12px 16px;
+                border-radius: 8px;
+                border-bottom: 1px solid #f0f0f0;
+                color: #2c3e50;
+                font-weight: 600;
+                transition: var(--transition);
+            }
+
+            /* បន្ថែម Glow Effect ពេល Hover/Active ដោយមិនខូច Style ដើម */
+            .nav-links a:active, .nav-links a:hover {
+                background-color: #e8f5e9;
+                color: var(--primary);
+                box-shadow: 0 2px 10px rgba(76, 175, 80, 0.2);
+            }
+
+            .hero {
+                padding: 60px 5% 50px 5%;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .section {
+                padding: 45px 5%;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .cards-grid, .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .order-section {
+                padding: 22px 18px;
+            }
+
+            .order-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .trust-banner {
+                margin: 20px 3%;
+                padding: 30px 18px;
+            }
+
+            .btn-primary {
+                width: 100%;
+                text-align: center;
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- OVERLAY BACKDROP -->
+    <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="index.html" class="logo">
+
+<span class="logo-icon">🌱</span> ភូមិបៃតង
+
+</a>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="navigateTo('hero')">ទំព័រដើម</a></li>
+                <li><a onclick="navigateTo('products')">ផលដំណាំ</a></li>
+                <li><a onclick="navigateTo('services')">សេវាកម្ម</a></li>
+                <li><a onclick="navigateTo('about')">អំពីយើង</a></li>
+                <li><a onclick="navigateTo('order')">បញ្ជាទិញ</a></li>
+                <li><a onclick="navigateTo('contact')">ទំនាក់ទំនង</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <h1>ភូមិបៃតង - មជ្ឈមណ្ឌលចែករំលែក និងលក់ផលដំណាំធម្មជាតិ</h1>
+        <p>សូមស្វាគមន៍មកកាន់ ភូមិបៃតង! យើងខ្ញុំផ្គត់ផ្គង់ ស្រូវ ផ្លែឈើ និងដំណាំគ្រប់មុខដែលមានគុណភាពខ្ពស់ សុវត្ថិភាព និងតម្លៃសមរម្យបំផុត ផ្ទាល់ពីដៃកសិករជូនដល់អ្នក។</p>
+        <button onclick="navigateTo('order')" class="btn-primary">មើលផលដំណាំ និងបញ្ជាទិញ →</button>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="section" id="products">
+        <div class="section-header">
+            <h2>🌾 ផលដំណាំស្រស់ៗពីចម្ការរបស់យើង</h2>
+            <p style="color: var(--text-muted);">ជ្រើសរើសទិញផលដំណាំធម្មជាតិ គ្មានសារធាតុគីមីពុល ធានាសុខភាព និងរសជាតិឆ្ងាញ់</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <img src="ricr.jpg" alt="ស្រូវ និងអង្ករធម្មជាតិ" class="card-img">
+                <div class="card-content">
+                    <div>
+                        <span class="badge">គុណភាពលេខ ១</span>
+                        <h3>🌾 ស្រូវ និងអង្ករធម្មជាតិ</h3>
+                        <p>គ្រាប់ពេញៗ ស្អាត គ្មានជាតិគីមីបន្លំ ម៉ត់ស្រួយ ដាំបាយឡើងទន់ ក្រអូបឆ្ងាញ់បែបធម្មជាតិពិតៗ。</p>
+                    </div>
+                    <a onclick="selectProductAndOrder('rice')" class="btn-learn-more">កុម្ម៉ង់ទិញឥឡូវនេះ →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=600&q=80" alt="ផ្លែឈើស្រស់ៗ" class="card-img">
+                <div class="card-content">
+                    <div>
+                        <span class="badge">បេះស្រស់ៗរៀងរាល់ថ្ងៃ</span>
+                        <h3>🍇 ផ្លែឈើគ្រប់មុខតាមរដូវកាល</h3>
+                        <p>បេះផ្ទាល់ពីដើម ផ្អែមឆ្ងាញ់តាមធម្មជាតិ មិនប្រើថ្នាំរក្សាទុកយូរ ធានាសុវត្ថិភាពអ្នកបរិភោគ。</p>
+                    </div>
+                    <a onclick="selectProductAndOrder('fruits')" class="btn-learn-more">កុម្ម៉ង់ទិញឥឡូវនេះ →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="me.jpg" alt="បន្លែធម្មជាតិ" class="card-img">
+                <div class="card-content">
+                    <div>
+                        <span class="badge">សុវត្ថិភាព ១០០%</span>
+                        <h3>🥬 បន្លែ និងដំណាំគ្រប់ប្រភេទ</h3>
+                        <p>ដាំដុះដោយយកចិត្តទុកដាក់ ប្រើប្រាស់ជីធម្មជាតិ ស្រស់ស្អាត និងមានវីតាមីនខ្ពស់សម្រាប់គ្រួសារអ្នក。</p>
+                    </div>
+                    <a onclick="selectProductAndOrder('veggies')" class="btn-learn-more">កុម្ម៉ង់ទិញឥឡូវនេះ →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BANNER -->
+    <div class="trust-banner">
+        <h2>🤝 ការប្តេជ្ញាចិត្ត និងទំនុកចិត្តពី «ភូមិបៃតង»</h2>
+        <p>យើងខ្ញុំភ្ជាប់ទំនាក់ទំនងផ្ទាល់រវាងកសិករ និងអ្នកទិញ ដោយគ្មានអ្នកកាត់ថ្លៃកណ្តាល!</p>
+        
+        <div class="trust-grid">
+            <div class="trust-item">
+                <h4>💯 គុណភាពខ្ពស់</h4>
+                <p>មិនល្អ មិនស្រស់ មិនយកលុយ!</p>
+            </div>
+            <div class="trust-item">
+                <h4>💰 តម្លៃសមរម្យ</h4>
+                <p>លក់ផ្ទាល់ពីកសិករ តម្លៃល្អបំផុត</p>
+            </div>
+            <div class="trust-item">
+                <h4>🚚 ដឹកជញ្ជូនរហ័ស</h4>
+                <p>វេចខ្ចប់ប្រុងប្រយ័ត្ន ដល់ដៃទាន់ចិត្ត</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <h2>សេវាកម្មប្រឹក្សាយោបល់បច្ចេកទេស</h2>
+            <p style="color: var(--text-muted);">ដំណោះស្រាយកសិកម្មទំនើប និងការថែទាំដំណាំ</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80" alt="ការវិភាគដី" class="card-img">
+                <div class="card-content">
+                    <div>
+                        <h3>🧪 វិភាគគុណភាពដី និងការដាំដុះ</h3>
+                        <p>ពិនិត្យវាស់ស្ទង់កម្រិត pH ដី និងរៀបចំផែនការដាំដំណាំឲ្យត្រូវតាមស្ថានភាពដី និងអាកាសធាតុជាក់ស្តែង。</p>
+                    </div>
+                    <a onclick="navigateTo('contact')" class="btn-learn-more">ប្រឹក្សាយោបល់ →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=600&q=80" alt="ប្រព័ន្ធស្រោចស្រព" class="card-img">
+                <div class="card-content">
+                    <div>
+                        <h3>💧 ប្រព័ន្ធស្រោចស្រព និងជីធម្មជាតិ</h3>
+                        <p>រៀបចំប្រព័ន្ធស្រោចស្រពសន្សំសំចៃទឹក (Drip/Sprinkler) និងការណែនាំពីការប្រើប្រាស់ជីធម្មជាតិបំប៉នដី。</p>
+                    </div>
+                    <a onclick="navigateTo('contact')" class="btn-learn-more">ប្រឹក្សាយោបល់ →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about" style="background: #eef5f0;">
+        <div class="section-header">
+            <h2>អំពី ភូមិបៃតង</h2>
+            <p style="color: var(--text-muted);">ស្មារតី និងការប្តេជ្ញាចិត្តរបស់យើង</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>🚀 បេសកកម្ម និងចក្ខុវិស័យ</h3>
+                <p>បញ្ចូលបច្ចេកវិទ្យាឌីជីថលជាមួយនឹងវិធីសាស្ត្រកសិកម្មទំនើប ដើម្បលើកស្ទួយជីវភាពកសិករ និងអភិវឌ្ឍកសិកម្មកម្ពុជាឱ្យមានភាពចីរភាព。</p>
+            </div>
+            <div class="about-card">
+                <h3>✅ ការប្តេជ្ញាចិត្ត</h3>
+                <p>រាល់ព័ត៌មាន បច្ចេកទេស និងកសិផលទាំងអស់ ត្រូវបានផ្ទៀងផ្ទាត់យ៉ាងយកចិត្តទុកដាក់ ដើម្បីធានាថាអ្នកទទួលបានផលដំណាំពិត និងគុណភាពខ្ពស់。</p>
+            </div>
+            <div class="about-card">
+                <h3>🤝 ស្មារតីចែករំលែក</h3>
+                <p>បង្កើតឡើងចេញពីបេះដូង និងបទពិសោធន៍ផ្ទាល់របស់កសិករគំរូ ក្នុងគោលបំណងចែករំលែកមេរៀនជោគជ័យដល់សហគមន៍。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER FORM SECTION -->
+    <section class="section" id="order">
+        <div class="section-header">
+            <h2>🛒 ទម្រង់បែបបទបញ្ជាទិញ</h2>
+            <p style="color: var(--text-muted);">សូមបំពេញព័ត៌មានខាងក្រោមដើម្បីឱ្យក្រុមការងារយើងខ្ញុំរៀបចំដឹកជញ្ជូនជូនអ្នក</p>
+        </div>
+
+        <div class="order-section">
+            <form class="order-form" id="purchaseForm" onsubmit="handleOrder(event)">
+                <div class="form-group">
+                    <label for="fullname">ឈ្មោះអ្នកទិញ *</label>
+                    <input type="text" id="fullname" placeholder="ឧ. សុខ ជា" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">លេខទូរស័ព្ទ *</label>
+                    <input type="tel" id="phone" placeholder="ឧ. 012 345 678" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="productSelect">ជ្រើសរើសផលដំណាំ *</label>
+                    <select id="productSelect" required>
+                        <option value="">-- សូមជ្រើសរើសមុខទំនិញ --</option>
+                        <option value="rice">🌾 ស្រូវ និងអង្ករធម្មជាតិ</option>
+                        <option value="fruits">🍇 ផ្លែឈើគ្រប់មុខតាមរដូវកាល</option>
+                        <option value="veggies">🥬 បន្លែ និងដំណាំគ្រប់ប្រភេទ</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">ចំនួន (គីឡូក្រាម / បាវ) *</label>
+                    <input type="number" id="quantity" min="1" value="1" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="address">អាសយដ្ឋានដឹកជញ្ជូន *</label>
+                    <textarea id="address" rows="3" placeholder="សូមបញ្ជាក់ ផ្ទះលេខ, ផ្លូវ, ភូមិ/សង្កាត់, ខេត្ត/ក្រុង..." required></textarea>
+                </div>
+
+                <div class="form-group full-width" style="text-align: center; margin-top: 10px;">
+                    <button type="submit" class="btn-primary" style="width: 100%;">បញ្ជូនការបញ្ជាទិញ ➔</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>🌱 ភូមិបៃតង</h3>
+                <p>មជ្ឈមណ្ឌលចែករំលែកចំណេះដឹងកសិកម្មទំនើប ផ្គត់ផ្គង់ផលដំណាំធម្មជាតិ និងផ្តល់ដំណោះស្រាយបៃតងប្រកបដោយចីរភាព。</p>
+            </div>
+            <div class="footer-col">
+                <h3>ទំនាក់ទំនង</h3>
+                <p>📍 អាសយដ្ឋាន៖ ក្រុថសៀមរាប, កម្ពុជា</p>
+                <p>📞 ទូរស័ព្ទ៖ 070 752 461</p>
+                <p>✉️ អ៊ីមែល៖ chanmakara1567@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ភូមិបៃតង. រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuOverlay = document.getElementById('menuOverlay');
+            navLinks.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuOverlay = document.getElementById('menuOverlay');
+            navLinks.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        }
+
+        function navigateTo(sectionId) {
+            closeMenu();
+            const section = document.getElementById(sectionId);
+            if (section) {
+                setTimeout(() => {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+
+        function selectProductAndOrder(productVal) {
+            const productSelect = document.getElementById('productSelect');
+            if (productSelect) {
+                productSelect.value = productVal;
+            }
+            navigateTo('order');
+        }
+
+        function handleOrder(e) {
+            e.preventDefault();
+            alert('សូមអរគុណសម្រាប់ការបញ្ជាទិញ! ក្រុមការងារយើងខ្ញុំនឹងទាក់ទងទៅអ្នកក្នុងពេលឆាប់ៗនេះ។');
+            document.getElementById('purchaseForm').reset();
+        }
+    </script>
+</body>
+</html>

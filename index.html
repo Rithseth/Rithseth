@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="km">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ភូមិបៃតង - កសិកម្មធម្មជាតិ</title>
+
+
+<!-- Google Fonts (Kantumruy Pro) -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+
+<!-- Link to External CSS -->
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+
+<!-- ==========================================
+
+1. NAVBAR SECTION
+
+========================================== -->
+
+<header class="navbar">
+
+<!-- កែប្រែត្រង់នេះ៖ ចុចលើ logo "ភូមិបៃតង" ដើម្បីត្រឡប់មកទំព័រដើម (index.html) -->
+
+<a href="index.html" class="logo">
+
+<span class="logo-icon">🌱</span> ភូមិបៃតង
+
+</a>
+
+<nav>
+
+<ul class="nav-links" id="navLinks">
+
+<li><a href="index.html#hero" class="active">ទំព័រដើម</a></li>
+
+<li><a href="index.html#products">ផលិតផល</a></li>
+
+<li><a href="index.html#services">សេវាកម្ម</a></li>
+
+<li><a href="index.html#about">អំពីយើង</a></li>
+
+<li><a href="index.html#contact">ទំនាក់ទំនង</a></li>
+
+</ul>
+
+</nav>
+
+<div class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Navigation">☰</div>
+
+</header>
+
+
+
+<!-- ==========================================
+
+2. HERO SECTION
+
+========================================== -->
+
+<section class="hero" id="hero">
+
+<div class="hero-content">
+
+<h1>ផលិតផលកសិកម្មធម្មជាតិ និងបៃតង</h1>
+
+<p>ផ្គត់ផ្គង់បន្លែ ផ្លែឈើស្រស់ៗ គ្រាប់ពូជ និងឧបករណ៍កសិកម្មទំនើបៗសម្រាប់កសិករ</p>
+
+<a href="detail.html" class="btn">
+
+មើលផលិតផល <span>→</span>
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- ==========================================
+
+3. FEATURE BOXES SECTION
+
+========================================== -->
+
+<section class="feature-boxes" id="services">
+
+<!-- ប្រអប់ទី១: កសិករជំនាញ -->
+
+<div class="feature-box feature-box-1">
+
+<div>
+
+<h2>កសិករជំនាញ</h2>
+
+<p>ប្តេជ្ញាចិត្តក្នុងការកសាងដៃគូសហការរយៈពេលវែងជាមួយអតិថិជន ដោយផ្អែកលើទំនុកចិត្ត និងកិច្ចសហប្រតិបត្តិការក្នុងការងាររបស់យើង។</p>
+
+</div>
+
+<a href="about.html" class="discover-more">ស្វែងយល់បន្ថែម <span class="icon-arrow">→</span></a>
+
+<div class="box-icon-bg">👩🏼‍🌾🌿</div>
+
+</div>
+
+
+
+<!-- ប្រអប់ទី២: ដំណោះស្រាយសរីរាង្គ -->
+
+<div class="feature-box feature-box-2">
+
+<div>
+
+<h2>ដំណោះស្រាយសរីរាង្គ និងបរិស្ថាន</h2>
+
+<p>យើងរួមគ្នាក្នុងគោលបំណងលើកកម្ពស់ការការពារបរិស្ថាន ព្រមទាំងគំនិត និងការអនុវត្តកសិកម្មសរីរាង្គធម្មជាតិឱ្យកាន់តែទូលំទូលាយ។</p>
+
+</div>
+
+<a href="organic-farming.html" class="discover-more">ស្វែងយល់បន្ថែម <span class="icon-arrow">→</span></a>
+
+<div class="box-icon-bg">🌱🥬🌾</div>
+
+</div>
+
+
+
+<!-- ប្រអប់ទី៣: តម្លៃស្នូល -->
+
+<div class="feature-box feature-box-3">
+
+<div>
+
+<h2>តម្លៃស្នូលរបស់យើង</h2>
+
+<p>យើងជឿជាក់លើបច្ចេកទេសកសិកម្មដែលមានការទទួលខុសត្រូវ ដោយផ្តល់អាទិភាពដល់សុខភាពដី និងអតិថិជននៅក្នុងទីផ្សារកសិកម្មតំបន់។</p>
+
+</div>
+
+<a href="va.html" class="discover-more">ស្វែងយល់បន្ថែម <span class="icon-arrow">→</span></a>
+
+<div class="box-icon-bg">📋⚙️📈</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==========================================
+
+4. EXTRA CONTENT & STATS
+
+========================================== -->
+
+<section class="extra-content" id="products">
+
+<div class="section-header" id="about">
+
+<h2>បច្ចុប្បន្នយើងកំពុងលូតលាស់ និងរីកចម្រើន</h2>
+
+<p>យើងបន្តអភិវឌ្ឍផលិតផល និងសេវាកម្មដើម្បីគាំទ្រដល់សហគមន៍កសិកម្មកម្ពុជា</p>
+
+</div>
+
+
+
+<div class="stats-grid">
+
+<div class="stat-card">
+
+<div class="number">100%</div>
+
+<div class="label">ធម្មជាតិសរីរាង្គ</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="number">500+</div>
+
+<div class="label">គ្រួសារកសិករគាំទ្រ</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="number">50+</div>
+
+<div class="label">មុខផលិតផលស្រស់</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="number">24/7</div>
+
+<div class="label">សេវាពិគ្រោះយោបល់</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==========================================
+
+5. FOOTER SECTION
+
+========================================== -->
+
+<footer id="contact">
+
+<div class="footer-content">
+
+<div class="footer-col">
+
+<!-- កែប្រែ Footer ៖ ដាក់ link លើចំណងជើង "🌱 ភូមិបៃតង" ឱ្យចុចត្រឡប់ទៅទំព័រដើមដែរ -->
+
+<h3>
+
+<a href="index.html" style="color: inherit; text-decoration: none;">🌱 ភូមិបៃតង</a>
+
+</h3>
+
+<p>ផ្តល់ជូននូវផលិតផលកសិកម្មធម្មជាតិ និងដំណោះស្រាយបៃតងប្រកបដោយចីរភាពសម្រាប់សុខភាពអ្នក និងបរិស្ថាន។</p>
+
+</div>
+
+<div class="footer-col">
+
+<h3>តំណភ្ជាប់លឿន</h3>
+
+<a href="index.html#hero">ទំព័រដើម</a>
+
+<a href="index.html#products">ផលិតផល</a>
+
+<a href="index.html#services">សេវាកម្ម</a>
+
+<a href="index.html#about">អំពីយើង</a>
+
+</div>
+
+<div class="footer-col">
+
+<h3>ទំនាក់ទំនង</h3>
+
+<p>📍 ក្រុងសៀមរាប, កម្ពុជា</p>
+
+<p>📞 +855 70 752 461</p>
+
+<p>✉️ chanmakara1567@gmail.com</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>© ២០២៦ កសិកម្មភូមិបៃតង។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+
+</div>
+
+</footer>
+
+
+
+<!-- ==========================================
+
+6. SCRIPT
+
+========================================== -->
+
+<script>
+
+function toggleMenu() {
+
+const navLinks = document.getElementById('navLinks');
+
+navLinks.classList.toggle('active');
+
+}
+
+
+
+// Close menu when clicking outside
+
+document.addEventListener('click', function(event) {
+
+const navLinks = document.getElementById('navLinks');
+
+const menuBtn = document.querySelector('.mobile-menu-btn');
+
+
+if (!navLinks.contains(event.target) && !menuBtn.contains(event.target) && navLinks.classList.contains('active')) {
+
+navLinks.classList.remove('active');
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html> 
+

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ភូមិបៃតង - មជ្ឈមណ្ឌលចែករំលែកចំណេះដឹងកសិកម្មទំនើប</title>
+    
+    <!-- Google Fonts (Nokora & Kantumruy Pro) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;600;700&family=Nokora:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS កែសម្រួលបញ្ហាអក្សរជាន់គ្នា -->
+    <style>
+        /* កំណត់ Font ឱ្យច្បាស់ និងលុបចន្លោះអក្សរដែលធ្វើឱ្យជាន់គ្នា */
+        * {
+            letter-spacing: normal !important; /* លុប letter-spacing ដែលធ្វើឱ្យអក្សរជាន់គ្នា */
+            word-spacing: normal !important;
+        }
+
+        body {
+            font-family: 'Nokora', 'Kantumruy Pro', 'Khmer OS Battambang', sans-serif !important;
+            line-height: 1.9 !important; /* បន្ថែមឃ្លាតជួរឱ្យស្រឡះ */
+            font-weight: 400 !important;
+        }
+
+        /* កែប្រែចំណងជើងកុំឱ្យក្រាស់ពេកនាំឱ្យជាន់គ្នា */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Kantumruy Pro', 'Nokora', sans-serif !important;
+            line-height: 1.6 !important;
+            font-weight: 700 !important;
+        }
+
+        p {
+            line-height: 1.9 !important;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+       1. NAVBAR SECTION
+       ========================================== -->
+    <header class="navbar">
+       <a href="index.html" class="logo">
+
+<span class="logo-icon">🌱</span> ភូមិបៃតង
+
+</a>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="active">ទំព័រដើម</a></li>
+                <li><a href="#services">សេវាកម្មប្រឹក្សាយោបល់</a></li>
+                <li><a href="#about">អំពីយើង</a></li>
+                <li><a href="#contact">ទំនាក់ទំនង</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Navigation">☰</div>
+    </header>
+
+    <!-- ==========================================
+       2. HERO SECTION
+       ========================================== -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ភូមិបៃតង - មជ្ឈមណ្ឌលចែករំលែកចំណេះដឹងកសិកម្មទំនើប</h1>
+            <p>សូមស្វាគមន៍មកកាន់ ភូមិបៃតង – ដៃគូទុកចិត្តរបស់កសិករក្នុងយុគសម័យឌីជីថល! យើងជួយអ្នកប្រែក្លាយបទពិសោធន៍ និងបច្ចេកទេសដាំដុះទំនើប ឱ្យទៅជាទិន្នផលពិតប្រាកដ និងប្រាក់ចំណេញប្រកបដោយចីរភាព។</p>
+            <a href="#services" class="btn">
+                កក់ការប្រឹក្សាយោបល់ <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       3. ABOUT US SECTION
+       ========================================== -->
+    <section id="about" class="about-section">
+        <div class="section-header">
+        </div>
+
+        <div class="feature-boxes">
+            <!-- បេសកកម្ម និងចក្ខុវិស័យ -->
+            <div class="feature-box feature-box-1">
+                <div>
+                    <h2>បេសកកម្ម និងចក្ខុវិស័យ</h2>
+                    <p>យើងជឿជាក់យ៉ាងមុតមាំថា ការបញ្ចូលបច្ចេកវិទ្យាឌីជីថលជាមួយនឹងវិធីសាស្ត្រកសិកម្មទំនើប គឺជាសោរគ្រឹះក្នុងការលើកស្ទួយជីវភាពកសិករ និងអភិវឌ្ឍវិស័យកសិកម្មកម្ពុជាឲ្យមានភាពចីរភាព និងបៃតងជានិរន្តរ៍។</p>
+                </div>
+                <div class="box-icon-bg">🚀🌿</div>
+            </div>
+
+            <!-- ការប្តេជ្ញាចិត្តរបស់យើង -->
+            <div class="feature-box feature-box-2">
+                <div>
+                    <h2>ការប្តេជ្ញាចិត្តរបស់យើង</h2>
+                    <p>រាល់ព័ត៌មាន បច្ចេកទេស និងអត្ថបទទាំងអស់លើវេបសាយនេះ ត្រូវបានផ្ទៀងផ្ទាត់យ៉ាងយកចិត្តទុកដាក់ ដើម្បីធានាថាអ្នកទទួលបានព័ត៌មានពិត ប្រាកដនិយម និងទាន់សម័យ ដែលអាចយកទៅអនុវត្តបានផលពិតៗ។</p>
+                </div>
+                <div class="box-icon-bg">✅📋</div>
+            </div>
+
+            <!-- ស្មារតីចែករំលែក -->
+            <div class="feature-box feature-box-3">
+                <div>
+                    <h2>ស្មារតីចែករំលែក</h2>
+                    <p>យើងបង្កើត ភូមិបៃតង ឡើងដោយចេញពីបេះដូង និងបទពិសោធន៍ផ្ទាល់របស់កសិករគំរូ ក្នុងគោលបំណងផ្លាស់ប្តូរ និងចែករំលែកមេរៀនជោគជ័យ ដើរទន្ទឹមគ្នាជាមួយសហគមន៍កសិកម្មកម្ពុជា។</p>
+                </div>
+                <div class="box-icon-bg">🤝💚</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       4. SERVICES SECTION
+       ========================================== -->
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <h2>សេវាកម្មផ្តល់ប្រឹក្សាយោបល់បច្ចេកទេសកសិកម្ម</h2>
+            <p>តើអ្នកកំពុងជួបបញ្ហាក្នុងការដាំដុះ ឬជួយតម្រង់ទិសដៅចម្ការរបស់អ្នកមែនទេ? ក្រុមការងារ «កសិករជំនាញ» នៃ ភូមិបៃតង រង់ចាំជួយ និងជូនដំណោះស្រាយដល់អ្នក!</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>🧪 ការវិភាគគុណភាពដី និងបច្ចេកទេសដាំដុះ</h3>
+                <p>ពិនិត្យវាស់ស្ទង់កម្រិត pH ដី និងរៀបចំផែនការដាំដំណាំឲ្យត្រូវតាមស្ថានភាពដី និងអាកាសធាតុជាក់ស្តែង។</p>
+            </div>
+            <div class="stat-card">
+                <h3>💧 ប្រព័ន្ធស្រោចស្រព និងជីធម្មជាតិ</h3>
+                <p>រៀបចំប្រព័ន្ធស្រោចស្រពសន្សំសំចៃទឹក (Drip/Sprinkler) និងការណែនាំពីការប្រើប្រាស់ជីធម្មជាតិ/ជីសរីរាង្គបំប៉នដីឲ្យមានជីជាតិ។</p>
+            </div>
+        </div>
+
+        <div class="benefits-container" style="text-align: center; margin-top: 40px;">
+            <h3>អត្ថប្រយោជន៍ដែលអ្នកទទួលបានពី ភូមិបៃតង</h3>
+            <ul style="list-style: none; padding: 0; margin: 20px 0;">
+                <li style="margin-bottom: 10px;">✨ កាត់បន្ថយការចំណាយលើជី និងថ្នាំកសិកម្មដែលមិនចាំបាច់</li>
+                <li style="margin-bottom: 10px;">🎯 ទទួលបានដំណោះស្រាយចំគោលដៅ និងទាន់ពេលវេលា</li>
+                <li style="margin-bottom: 10px;">📈 បង្កើនទិន្នផល និងគុណភាពកសិផលបានយ៉ាងពិតប្រាកដ</li>
+            </ul>
+            <a href="#contact" class="btn">ទាក់ទងអ្នកជំនាញភូមិបៃតងឥឡូវនេះ</a>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       5. FOOTER SECTION
+       ========================================== -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>🌱 ភូមិបៃតង</h3>
+                <p>មជ្ឈមណ្ឌលចែករំលែកចំណេះដឹងកសិកម្មទំនើប និងផ្តល់ដំណោះស្រាយបៃតងប្រកបដោយចីរភាពសម្រាប់កសិករកម្ពុជា។</p>
+            </div>
+            <div class="footer-col">
+                <h3>តំណភ្ជាប់លឿន</h3>
+                <a href="#">ទំព័រដើម</a>
+                <a href="#about">អំពីយើង</a>
+                <a href="#services">សេវាកម្មប្រឹក្សាយោបល់</a>
+                <a href="#contact">ទំនាក់ទំនង</a>
+            </div>
+            <div class="footer-col">
+                <h3>ទំនាក់ទំនង</h3>
+                <p>📍 ក្រុងសៀមរាប, កម្ពុជា</p>
+                <p>📞 +855 70 752 461</p>
+                <p>✉️ chanmakara1567@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© ២០២៦ កសិកម្មភូមិបៃតង។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+       6. SCRIPT
+       ========================================== -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!navLinks.contains(event.target) && !menuBtn.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
